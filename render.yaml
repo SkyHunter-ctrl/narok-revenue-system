@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: narok-revenue-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn narok_revenue.wsgi:application
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: your-secret-key
+      - key: DEBUG
+        value: False
