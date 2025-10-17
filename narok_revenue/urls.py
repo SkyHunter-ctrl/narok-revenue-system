@@ -18,11 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('revenue.urls')),
-    path('api-token-auth/', obtain_auth_token),
-    path('api/', include('users.urls')),
-
+    path('api/revenue/', include('revenue.urls')),      # ✅ revenue endpoints
+    path('api/users/', include('users.urls')),          # ✅ users endpoints
+    path('api-token-auth/', obtain_auth_token),         # ✅ auth
 ]
